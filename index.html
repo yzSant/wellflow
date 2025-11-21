@@ -1,12 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IoT Dashboard — Monitoramento</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🏠 Monitoramento de Ambiente — Dashboard</h1>
+    <p class="subtitle">Dados em tempo real | Fonte: <code>http://20.186.91.136:3000/sensores</code></p>
+  </header>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Wellflow</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <main>
+    <section class="cards">
+      <div class="card"><h3>Temperatura</h3><div id="tempValue" class="big">-- °C</div></div>
+      <div class="card"><h3>Umidade</h3><div id="humValue" class="big">-- %</div></div>
+      <div class="card"><h3>Luminosidade</h3><div id="lumValue" class="big">--</div></div>
+      <div class="card"><h3>Status</h3><div id="statusValue" class="big">--</div></div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <h4>Temperatura (últimos 60 pontos)</h4>
+        <canvas id="chartTemp"></canvas>
+      </div>
+      <div class="chart-card">
+        <h4>Umidade (últimos 60 pontos)</h4>
+        <canvas id="chartHum"></canvas>
+      </div>
+      <div class="chart-card">
+        <h4>Luminosidade (últimos 60 pontos)</h4>
+        <canvas id="chartLum"></canvas>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="btnRefresh">Forçar atualização</button>
+      <label><input id="chkSim" type="checkbox" /> Simular dados (quando API inacessível)</label>
+      <div id="log"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Feito para seu projeto — atualiza a cada 2s. Se precisar, exporto isto como .zip.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
