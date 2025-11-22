@@ -53,7 +53,7 @@ Imagem ilustrativa do Wokwi recomendada aqui.
 ---
 
 ## 🌐 Comunicação MQTT  
-Broker utilizado: **broker.hivemq.com (sem TLS)**  
+Broker utilizado: **broker.hivemq.com**  
 Tópicos:  
 
 | Função | Tópico |
@@ -67,7 +67,7 @@ Tópicos:
 ---
 
 ## 🧪 Link do Wokwi  
-👉 **(insira aqui seu link completo do projeto após salvar no Wokwi)**
+👉 **(https://wokwi.com/projects/448282718243912705)**
 
 ---
 
@@ -104,12 +104,13 @@ Esta solução permite:
 
 ---
 
-## 📽 Vídeo (até 3 minutos) – Estrutura Recomendada  
-1. Problema no futuro do trabalho  
-2. Explicação da solução  
-3. Demonstração da simulação  
-4. Dashboard lendo MQTT  
-5. Conclusões e impactos  
+## Equipe Wellflow 1ESPX
+- Brenda Thais Ribeiro dos Santos
+  **RM: 561258**
+- Gustavo Cavalcanti
+  **RM: 565601**
+- Lucas Santana Silva
+  **RM: 566261**
 
 ---
 
