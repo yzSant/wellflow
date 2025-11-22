@@ -152,12 +152,12 @@ Inclui:
 ---
 
 # 🎥 **9. Equipe Wellflow**
-Brenda Thais Ribeiro dos Santos
-**RM: 561258**
-Gustavo Cavalcanti
-**RM: 565601**
-Lucas Santana Silva
-**RM:566261**
+ - Brenda Thais Ribeiro dos Santos
+    **RM: 561258**
+ - Gustavo Cavalcanti
+    **RM: 565601**
+ - Lucas Santana Silva
+    **RM:566261**
 
 ---
 
