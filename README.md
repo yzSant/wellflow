@@ -1,187 +1,186 @@
-📘 Projeto IoT – Estação Inteligente de Conforto Ambiental para Ambientes de Trabalho
-<p align="center"> <img src="https://img.shields.io/badge/ESP32-MicroPython-blue"/> <img src="https://img.shields.io/badge/MQTT-HiveMQ-ffcc00"/> <img src="https://img.shields.io/badge/Wokwi-Simulation-green"/> <img src="https://img.shields.io/badge/Status-Completed-brightgreen"/> </p>
+# 📘 **Projeto IoT – Estação Inteligente de Conforto Ambiental para Ambientes de Trabalho**
 
-Uma solução IoT moderna para o futuro do trabalho, monitorando temperatura, umidade e luminosidade, e enviando dados em tempo real via MQTT, com resposta imediata através de LEDs indicadores de conforto térmico.
+<p align="center">
+  <img src="https://img.shields.io/badge/ESP32-MicroPython-blue"/>
+  <img src="https://img.shields.io/badge/MQTT-HiveMQ-ffcc00"/>
+  <img src="https://img.shields.io/badge/Wokwi-Simulation-green"/>
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen"/>
+</p>
 
-🎯 1. Problema e Motivação
+Uma solução IoT moderna criada para o **futuro do trabalho**, monitorando temperatura, umidade e luminosidade em tempo real — enviando dados via **MQTT** e exibindo feedback instantâneo com **LEDs indicadores de conforto térmico**.
 
-Ambientes de trabalho — sejam presenciais, híbridos ou remotos — dependem diretamente da qualidade ambiental interna para garantir:
+---
 
-🧠 Alta produtividade
+# 🎯 **1. Problema e Motivação**
 
-😌 Bem-estar e saúde ocupacional
+Ambientes desconfortáveis afetam diretamente:
 
-💡 Boa ergonomia luminosa
+- 🧠 Produtividade  
+- 😌 Bem-estar e saúde  
+- 💡 Ergonomia luminosa  
+- 🔋 Eficiência energética  
+- 🏡 Conforto no home office  
 
-🔋 Eficiência energética
+E podem causar:
 
-🏡 Conforto mesmo no home office
+- ⚠ Aumento de estresse  
+- ⚠ Menor engajamento  
+- ⚠ Redução de desempenho  
 
-Ambientes desconfortáveis provocam:
+➡ Portanto, torna-se essencial um sistema de **monitoramento ambiental automático, contínuo e preciso**.
 
-⚠ aumento de estresse
-⚠ menor engajamento
-⚠ redução de desempenho
+---
 
-➡ Surge então a necessidade de monitoramento ambiental automático, com feedback rápido e preciso.
+# 🚀 **2. Solução Desenvolvida**
 
-🚀 2. Solução Desenvolvida
+A Estação IoT Inteligente oferece:
 
-A solução é uma Estação IoT Inteligente de Conforto Ambiental que:
+## ✔ **Sensoriamento**
+| Sensor | Função |
+|--------|---------|
+| 🌡 **DHT22** | Temperatura e Umidade |
+| 💡 **LDR (ADC)** | Luminosidade |
 
-✔ Sensoriamento
+## ✔ **Comunicação MQTT**
+- **Broker:** `broker.hivemq.com`  
+- **Publicação:** `wokwi/sensores`  
+- **Assinatura:** `wokwi/comandos`
 
-🌡 DHT22 — Temperatura e Umidade
+## ✔ **Atuação Automática**
+| LED | Significado |
+|-----|-------------|
+| 🔵 Azul | Ambiente Frio |
+| 🟠 Laranja | Confortável |
+| 🔴 Vermelho | Quente |
 
-💡 LDR (ADC) — Luminosidade
+## ✔ **Simulação**
+- ⚙ 100% funcional no **Wokwi**
+- 🧠 Programado em **MicroPython**
+- 🔌 Baseado em **ESP32 DevKit V1**
 
-✔ Comunicação MQTT
+---
 
-Broker: broker.hivemq.com
+# 🧩 **3. Arquitetura do Sistema**
 
-Publica dados no tópico:
+## 🖥️ **Sensores**
+| Componente | Função |
+|------------|--------|
+| DHT22 | Temperatura e umidade |
+| LDR + resistor | Intensidade luminosa |
 
-wokwi/sensores
+## 🔦 **Atuadores**
+| Atuador | Função |
+|---------|--------|
+| LEDs azul/laranja/vermelho | Indicam conforto térmico |
 
+## 🌐 **Conectividade**
+- Wi-Fi via **Wokwi-GUEST**
+- MQTT via **HiveMQ Cloud**
 
-Recebe comandos no tópico:
+---
 
-wokwi/comandos
+# 🔌 **4. Componentes Utilizados (Wokwi)**
 
-✔ Atuação Automática
-LED	Significado
-🔵 Azul	Ambiente Frio
-🟠 Laranja	Confortável
-🔴 Vermelho	Quente
-✔ Simulação 100% funcional
+- ✔ ESP32 DevKit V1  
+- ✔ Sensor DHT22  
+- ✔ LDR + resistor  
+- ✔ 3 LEDs (vermelho, laranja e azul)  
+- ✔ Jumpers  
 
-Rodando direto no Wokwi
+---
 
-Compatível com ESP32 + MicroPython
+# 🌐 **5. Comunicação MQTT**
 
-🧩 3. Arquitetura do Sistema
-🖥️ Sensores
-Sensor	Função
-DHT22	Mede temperatura e umidade
-LDR (ADC)	Mede luminosidade
-🔦 Atuadores
-Atuador	Função
-LEDs coloridos	Representam nível de conforto térmico
-🌐 Conectividade
+## 📤 Publicação – `wokwi/sensores`
 
-WiFi via Wokwi-GUEST
-
-MQTT via HiveMQ Cloud
-
-🔌 4. Componentes Utilizados (Wokwi)
-
-✔ ESP32 DevKit V1
-✔ Sensor DHT22
-✔ LDR + resistor
-✔ 3 LEDs (vermelho, laranja e azul)
-✔ Jumpers para conexão
-
-🌐 5. Comunicação MQTT
-📤 Publicação – Tópico wokwi/sensores
-
-Exemplo de mensagem enviada:
-
+Exemplo:
+```json
 {
   "temperatura": 28.4,
   "umidade": 52.1,
   "luminosidade": 1790
 }
+```
 
-📥 Assinatura – Tópico wokwi/comandos
+## 📥 Assinatura – `wokwi/comandos`
+Comandos podem vir de clientes externos e aparecerão no terminal.
 
-O ESP32 recebe mensagens externas e exibe no terminal.
+**Possíveis expansões:**
+- ⚙ Controle remoto dos LEDs  
+- ⚙ Modo automático  
+- ⚙ Alertas sonoros  
 
-Possível expansão:
-⚙ controle remoto de LEDs
-⚙ modos automáticos
-⚙ alertas sonoros
+---
 
-🧪 6. Link da Simulação Wokwi
+# 🧪 **6. Link da Simulação Wokwi**
 
-👉 Cole aqui o link da sua simulação:
+👉 Cole aqui seu link:  
 https://wokwi.com/projects/SEU-PROJETO
 
-🛠 7. Como Rodar o Projeto
-✔ 1 — Abra a simulação no Wokwi
+---
 
-Clique em "Start Simulation".
+# 🛠 **7. Como Rodar o Projeto**
 
-✔ 2 — Aguarde a inicialização
+### ✔ 1 — Abra a simulação  
+Clique em **Start Simulation**.
 
+### ✔ 2 — Aguarde a inicialização  
 O ESP32 irá automaticamente:
+- conectar ao WiFi  
+- conectar ao broker MQTT  
+- iniciar leitura e envio dos sensores  
 
-conectar ao WiFi
+### ✔ 3 — Visualize os dados no HiveMQ WebSocket Client  
+Acesse:  
+👉 https://www.hivemq.com/demos/websocket-client  
 
-conectar ao broker MQTT
+- Clique em **Connect**
+- Inscreva-se no tópico: `wokwi/sensores`
+- Observe os dados ao vivo
 
-iniciar o envio de dados
+---
 
-✔ 3 — Visualize os dados no HiveMQ WebSocket Client
+# 🧾 **8. Código-Fonte (main.py)**
 
-Acesse:
-👉 https://www.hivemq.com/demos/websocket-client
+Inclui:
+- Conexão WiFi  
+- Conexão MQTT  
+- Leitura dos sensores  
+- Publicação JSON  
+- Controle automático dos LEDs  
+- Thread para mensagens MQTT  
 
-Clique em Connect
+---
 
-Inscreva-se no tópico:
+# 🎥 **9. Vídeo do Projeto (Pitch – 3 min)**
 
-wokwi/sensores
+O pitch deve conter:
 
+1. Problema no futuro do trabalho  
+2. Demonstração no Wokwi  
+3. Comunicação MQTT  
+4. Aplicações reais  
+5. Conclusão e próximos passos  
 
-Veja as leituras surgirem em tempo real.
+Se quiser, eu gero **um roteiro completo com falas e tempos** 🎤
 
-🧾 8. Código-Fonte (main.py)
+---
 
-O arquivo inclui:
+# 📈 **10. Resultados e Impacto**
 
-Conexão WiFi
+A solução proporciona:
 
-Conexão MQTT
+- 🔍 Monitoramento ambiental imediato  
+- 🧘‍♂️ Ambientes mais saudáveis  
+- 🏢 Uso em escritórios, coworkings e escolas  
+- 🏡 Excelente para home office  
+- 🌍 Possível expansão para automação predial  
 
-Leitura de sensores
+---
 
-Publicação em JSON
+# 📂 **11. Estrutura do Repositório**
 
-Lógica dos LEDs
-
-Thread para mensagens MQTT
-
-O código completo está no repositório e segue o padrão solicitado.
-
-🎥 9. Vídeo do Projeto (Pitch – 3 minutos)
-
-O vídeo deve conter:
-
-Apresentação do problema no contexto do futuro do trabalho
-
-Demonstração do circuito no Wokwi
-
-Explicação da comunicação MQTT
-
-Aplicações reais e impacto
-
-Encerramento com visão futura do projeto
-
-Se quiser, posso gerar um roteiro pronto para gravação, com falas e tempo.
-
-📈 10. Resultados e Impacto
-
-A solução entrega:
-
-🔍 Monitoramento ambiental imediato
-
-🧘‍♂️ Ambientes mais saudáveis e confortáveis
-
-🏢 Aplicação em escritórios, coworkings, escolas e home office
-
-🌍 Possibilidade de expansão para automação predial
-
-📂 11. Estrutura do Repositório
+```
 📁 projeto-iot-conforto
 │── README.md
 │── main.py
@@ -190,3 +189,13 @@ A solução entrega:
 │   ├─ circuito.png
 │── docs/
 │   ├─ especificacoes.md
+```
+
+---
+
+Se quiser, posso também gerar:
+
+✅ versão em **PDF**  
+✅ versão em **inglês**  
+✅ slides da apresentação  
+✅ roteiro completo do pitch  
