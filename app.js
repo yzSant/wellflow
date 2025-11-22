@@ -1,4 +1,4 @@
-const MQTT_URL = "ws://broker.hivemq.com:8000/mqtt";
+const MQTT_URL = "wss://broker.hivemq.com:8884/mqtt";
 const TOPIC = "wokwi/sensores";
 const MAX_POINTS = 60;
 
@@ -15,8 +15,23 @@ function log(msg){
 function createChart(ctx){
   return new Chart(ctx, {
     type: 'line',
-    data: { labels: Array(MAX_POINTS).fill(''), datasets: [{ data: Array(MAX_POINTS).fill(null), fill:false, borderWidth:2, tension:0.15, pointRadius:0 }] },
-    options: { animation:false, responsive:true, maintainAspectRatio:false, scales: { x:{display:false}, y:{beginAtZero:true} }, plugins:{ legend:{display:false} } }
+    data: { 
+      labels: Array(MAX_POINTS).fill(''), 
+      datasets: [{
+        data: Array(MAX_POINTS).fill(null),
+        fill:false,
+        borderWidth:2,
+        tension:0.15,
+        pointRadius:0
+      }]
+    },
+    options: {
+      animation:false,
+      responsive:true,
+      maintainAspectRatio:false,
+      scales: { x:{display:false}, y:{beginAtZero:true} },
+      plugins:{ legend:{display:false} }
+    }
   });
 }
 
@@ -26,11 +41,13 @@ const chartLum  = createChart(document.getElementById('chartLum').getContext('2d
 
 function shiftAndPush(chart, value){
   chart.data.datasets[0].data.push(value);
-  if (chart.data.datasets[0].data.length > MAX_POINTS) chart.data.datasets[0].data.shift();
+  if (chart.data.datasets[0].data.length > MAX_POINTS)
+    chart.data.datasets[0].data.shift();
   chart.update('none');
 }
 
 log('Conectando ao broker...');
+
 const client = mqtt.connect(MQTT_URL, { connectTimeout: 4000 });
 
 client.on('connect', () => {
@@ -42,33 +59,39 @@ client.on('connect', () => {
 });
 
 client.on('reconnect', () => log('Reconectando...'));
-client.on('error', (err) => log('Erro MQTT: ' + (err && err.message ? err.message : err)));
+client.on('error', (err) => log('Erro MQTT: ' + (err?.message ?? err)));
 client.on('offline', () => log('Cliente offline'));
 
 client.on('message', (topic, message) => {
   try {
     const data = JSON.parse(message.toString());
-    document.getElementById('tempValue').textContent = (data.temperatura ?? data.temp ?? '--') + ' °C';
-    document.getElementById('humValue').textContent  = (data.umidade ?? data.humidity ?? '--') + ' %';
-    document.getElementById('lumValue').textContent  = (data.luminosidade ?? data.light ?? '--');
-    // status derivation
+
+    document.getElementById('tempValue').textContent =
+      (data.temperatura ?? data.temp ?? '--') + ' °C';
+
+    document.getElementById('humValue').textContent =
+      (data.umidade ?? data.humidity ?? '--') + ' %';
+
+    document.getElementById('lumValue').textContent =
+      (data.luminosidade ?? data.light ?? '--');
+
     let s = data.status ?? '--';
-    if (!data.status){
-      const t = parseFloat(data.temperatura ?? data.temp);
-      if (!isNaN(t)){
-        if (t > 40) s = 'Desconfortável';
-        else if (t > 25) s = 'Podemos Melhorar';
-        else s = 'Agradável';
-      }
+    const t = parseFloat(data.temperatura ?? data.temp);
+
+    if (!data.status && !isNaN(t)){
+      if (t > 40) s = "Desconfortável";
+      else if (t > 25) s = "Podemos Melhorar";
+      else s = "Agradável";
     }
+
     document.getElementById('statusValue').textContent = s;
 
     shiftAndPush(chartTemp, parseFloat(data.temperatura ?? data.temp) || null);
-    shiftAndPush(chartHum, parseFloat(data.umidade ?? data.humidity) || null);
-    shiftAndPush(chartLum, Number(data.luminosidade ?? data.light) || null);
+    shiftAndPush(chartHum,  parseFloat(data.umidade ?? data.humidity) || null);
+    shiftAndPush(chartLum,  Number(data.luminosidade ?? data.light) || null);
 
-    log('Mensagem recebida');
+    log("Mensagem recebida");
   } catch (e) {
-    log('Erro ao parsear mensagem: ' + e.message);
+    log("Erro ao parsear mensagem: " + e.message);
   }
 });
