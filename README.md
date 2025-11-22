@@ -113,9 +113,8 @@ Comandos podem vir de clientes externos e aparecerão no terminal.
 ---
 
 # 🧪 **6. Link da Simulação Wokwi**
-
-👉 Cole aqui seu link:  
-https://wokwi.com/projects/SEU-PROJETO
+ 
+https://wokwi.com/projects/448282718243912705
 
 ---
 
@@ -152,17 +151,13 @@ Inclui:
 
 ---
 
-# 🎥 **9. Vídeo do Projeto (Pitch – 3 min)**
-
-O pitch deve conter:
-
-1. Problema no futuro do trabalho  
-2. Demonstração no Wokwi  
-3. Comunicação MQTT  
-4. Aplicações reais  
-5. Conclusão e próximos passos  
-
-Se quiser, eu gero **um roteiro completo com falas e tempos** 🎤
+# 🎥 **9. Equipe Wellflow**
+Brenda Thais Ribeiro dos Santos
+**RM: 561258**
+Gustavo Cavalcanti
+**RM: 565601**
+Lucas Santana Silva
+**RM:566261**
 
 ---
 
@@ -190,12 +185,3 @@ A solução proporciona:
 │── docs/
 │   ├─ especificacoes.md
 ```
-
----
-
-Se quiser, posso também gerar:
-
-✅ versão em **PDF**  
-✅ versão em **inglês**  
-✅ slides da apresentação  
-✅ roteiro completo do pitch  
